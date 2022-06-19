@@ -1,10 +1,11 @@
+
 <!-- Ref:http://hammer1007.blogspot.com/2020/05/line-bot-liff-v2-20200504.html-->
 <!DOCTYPE html>
 <html>
 <head>
   <base target="_blank">
    <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <title>奇奇的教學頻道--傳訊息給學生</title>
+   <title>奇奇的教學頻道--傳訊息給班級</title>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -14,12 +15,12 @@
   <div class="row" style="margin: 10px">
     <div class="col-12" style="margin: 10px">
 	  <div id="div1">
-		<label id="label1">學生</label>
-		<input type="text" id="field1" class="form-control" placeholder='學生姓名或學號' />
+		<label id="label1">課程</label>
+		<input type="text" id="field1" class="form-control" placeholder='課程名稱' />
       </div>
 	  <div id="div2">
-		  <label id="label2"></label>
-		  <input type="text" id="field2" class="form-control" placeholder='' />
+		  <label id="label2">班級</label>
+		  <input type="text" id="field2" class="form-control" placeholder='班級(ex.313)' />
 	  </div>
 	  <div id="div2">
 		  <label id="label3">留言</label>
@@ -31,7 +32,7 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 <script>
-var msgtype=1
+var msgtype=2
     function initializeLiff(myLiffId) {
       //alert("test1");
       liff

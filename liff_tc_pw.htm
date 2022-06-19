@@ -1,0 +1,69 @@
+<!-- Ref:http://hammer1007.blogspot.com/2020/05/line-bot-liff-v2-20200504.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_blank">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>奇奇的教學頻道--密碼</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+</head>
+<body>
+  <div class="row" style="margin: 10px">
+    <div class="col-12" style="margin: 10px">
+      <label>原密碼:</label>
+      <input type="text" id="orig_pw" class="form-control" placeholder="若未設定過,請留空白"/>
+      <br />
+      <label>新密碼:</label>
+      <input type="text" id="new_pw" class="form-control" placeholder="8個字以上"/>
+      <br />
+      <button class="btn btn-success btn-block" id="sure">確定</button>
+    </div>
+  </div>
+
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script>
+    function initializeLiff(myLiffId) {
+      //alert("test1");
+      liff
+        .init({
+          liffId: myLiffId
+        }).then(() => {
+          //alert("test2"); //關閉視窗
+        });
+    }
+
+function pushMsg(orig_pw,new_pw) {
+  if (new_pw == '' ) { //資料檢查
+    alert('新密碼必須輸入！');
+    return;
+  }
+  if (new_pw.length<8 ) { //資料檢查
+    alert('新密碼需8個字以上！');
+    return;
+  }
+  var msg = "密碼-"; //回傳訊息字串
+  msg = msg + orig_pw+":";
+  msg = msg + new_pw;
+  liff.sendMessages([ //推播訊息
+    { type: 'text',
+     text: msg
+    }
+  ])
+  .then(() => {
+    liff.closeWindow(); //關閉視窗
+    });
+  }
+
+  $(document).ready(function () {
+  //initializeLiff('你的 LIFFID');
+  initializeLiff('1656019011-wO4v9Bqq');
+  $('#sure').click(function (e) { //按下確定鈕
+  pushMsg($('#orig_pw').val(),$('#new_pw').val());
+  });
+});
+</script>
+</body>
+</html>
