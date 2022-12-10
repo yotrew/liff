@@ -35,7 +35,7 @@
         });
     }
 
-function pushMsg(field1) {
+function pushMsg(field1,field2) {
   if (field1 == '' ) { //資料檢查
     alert('每個項目都必須輸入！');
     return;
@@ -61,7 +61,7 @@ function pushMsg(field1) {
   //initializeLiff('你的 LIFFID');
   initializeLiff('1656019011-30YjEGww');
   $('#sure').click(function (e) { //按下確定鈕
-  pushMsg($('#field1').val());
+  pushMsg($('#field1').val(),$('#field2').val());
   });
 });
 </script>
