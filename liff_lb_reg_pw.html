@@ -17,7 +17,7 @@
       <input type="text" id="field1" class="form-control" placeholder=學號(09XXXX等,若第1個字為0需包含0) />
       <br />
       <label>你的密碼:</label>
-      <input type="text" id="field2" class="form-control" placeholder=密碼(若沒有密碼,請保持空白)/>
+      <input type="text" id="field2" class="form-control" value="" placeholder=密碼(若沒有密碼,請保持空白) />
       <br />
       <button class="btn btn-success btn-block" id="sure">確定</button>
     </div>
@@ -39,6 +39,9 @@ function pushMsg(field1) {
   if (field1 == '' ) { //資料檢查
     alert('每個項目都必須輸入！');
     return;
+  }
+  if (field2 == '' || field2=== undefined ||typeof field2 === "undefined") { //資料檢查
+    field2="";
   }
   //var msg = "註冊-"; //回傳訊息字串
   var msg = ""; //回傳訊息字串
